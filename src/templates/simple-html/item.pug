@@ -1,0 +1,41 @@
+.item
+  p #{item.nights} ночей
+  p Заезд #{item.checkin}
+  p
+    if item.href
+      a(href= item.href) #{item.name}
+    else
+      | #{item.name}
+    if item.visits_count > 0
+      | , #{item.visits_count} кликов
+  if item.country
+    p #{item.country}
+      if item.resort
+        | , #{item.resort}
+  else
+      if item.resort
+        p #{item.resort}
+  if quote.show_touroperator && item.operator
+    p Туроператор #{item.operator}
+  if item.price < item.initial_price
+    p 
+      del #{item.initial_price}
+      | #{item.price}
+  else
+    p #{item.price}
+  if item.adults
+    p #{item.adults} взрослых
+      if item.children
+        | , #{item.children} детей
+        if item.child_ages
+          | (#{item.child_ages})
+  else 
+    if item.children
+      p #{item.children} детей
+        if item.child_ages
+          | (#{item.child_ages})
+  if quote.show_ta_rating
+    if item.ta_rating != null
+      p #{item.ta_rating}
+      if item.ta_num_reviews != null
+        | , #{item.ta_num_reviews} отзывов

@@ -1,0 +1,64 @@
+{
+  "quote": {
+    "name": "Test quote",
+    "advanced_text": "Здравствуйте, дорогой Игорь Иванович!",
+    "advanced_bottom_text": "Хорошего отдыха!",
+    "show_touroperator": true,
+    "show_ta_rating": true,
+    "items": [{
+        "pos": 0,
+        "checkin": "2020-08-10",
+        "nights": 7,
+        "name": "Mitos Apartments 4*",
+        "href": "https://yandex.ru",
+        "resort": "Анталия",
+        "country": "Турция",
+        "price": 31660,
+        "operator": "sletat",
+        "visits_count": 13,
+        "initial_price": 31660,
+        "adults": 2,
+        "children": 2,
+        "child_ages": "5,9",
+        "ord": 1,
+        "ta_rating": 4.5,
+        "ta_num_reviews": 100,
+        "ta_web_url": "https://yandex.ru"
+      },
+      {
+        "pos": 1,
+        "checkin": "2020-08-11",
+        "nights": 8,
+        "name": "Orchid Hotel 3*",
+        "href": "https://yandex.ru",
+        "resort": "Анталия",
+        "country": "Турция",
+        "price": 41000,
+        "operator": "sletat",
+        "visits_count": 10,
+        "initial_price": 41660,
+        "adults": 2,
+        "children": 2,
+        "ord": 0,
+        "ta_rating": 3,
+        "ta_num_reviews": 1001,
+        "ta_web_url": "https://yandex.ru"
+      },
+      {
+        "pos": 2,
+        "checkin": "2020-08-11",
+        "nights": 9,
+        "name": "Kleopatra Alis 3*",
+        "href": "https://yandex.ru",
+        "country": "Турция",
+        "price": 51000,
+        "operator": "sletat",
+        "initial_price": 51660,
+        "adults": 2,
+        "children": 2,
+        "child_ages": "5,9",
+        "ord": 2
+      }
+    ]
+  }
+}
