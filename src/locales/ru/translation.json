@@ -1,10 +1,16 @@
 {
+  "nights_gen": "{nights, plural, zero {ночей} one {ночь} two {ночи} few {ночи} many {ночей} other {ночей}}",
+  "Checkin": "Заезд",
+  "Touroperator": "Туроператор",
+  "adults_gen": "{count, plural, zero {взрослых} one {взрослый} two {взрослых} few {взрослых} many {взрослых} other {взрослых}}",
+  "children_gen": "{count, plural, zero {детей} one {ребенок} two {детей} few {детей} many {детей} other {детей}}",
+  "reviews_gen": "{count, plural, zero {отзывов} one {отзыв} two {отзыва} few {отзыва} many {отзывов} other {отзывов}}",
+  "date_dMMM": "{value, date, medium}",
+  "date_dMMM2": "{value, date, ::yyyyMMMdd}",
   "key": "value",
   "nights_gen_0_20": "(0){ночей};(1){ночь};(2-4){ночи};(5-inf){ночей}",
-  "nights_gen": "{nights, plural, zero {ночей} one {ночь} two {ночи} few {ночи} many {ночей} other {ночей}}",
   "nights_gen1": "{{nights, pluralsRu:ночь|ночи|ночей}}",
   "nights_gen2": "{nights, plural, one {ночь} few {ночи} many {ночей} other {ночей}}",
   "nights_gen21": "{nights, number} {nights, plural, one {ночь} few {ночи} many {ночей} other {ночей}}",
-  "checkin": "заезд",
-  "Checkin": "Заезд"
+  "checkin": "заезд"
 }

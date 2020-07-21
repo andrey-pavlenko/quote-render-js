@@ -1,54 +1,50 @@
-import { join as pathJoin } from 'path';
-import { readdirSync, lstatSync } from 'fs';
-import i18next from 'i18next';
-// import { FormatFunction } from 'i18next';
-// @ts-ignore
-import Backend from 'i18next-fs-backend';
-import IntervalPlural from 'i18next-intervalplural-postprocessor';
-import ICU from 'i18next-icu';
-import { format } from './locales/format';
+import {
+  compileDuration,
+  compileTemplateWithoutCache,
+  renderDuration
+} from './templates';
+import { translators } from './locales';
+import { memoryUsage } from './perfomance';
+import data from './templates/data.json';
 
-const localesPath = './locales';
+const renderFn = compileTemplateWithoutCache();
 
-const i18nextOptions = {
-  // debug: true,
-  initImmediate: false,
-  fallbackLng: 'ru',
-  lng: 'ru',
-  preload: readdirSync(pathJoin(__dirname, localesPath)).filter((fileName) => {
-    const dir = pathJoin(pathJoin(__dirname, localesPath), fileName);
-    return lstatSync(dir).isDirectory();
-  }),
-  interpolation: {
-    format
-  },
-  backend: {
-    loadPath: pathJoin(__dirname, localesPath + '/{{lng}}/{{ns}}.json')
-  },
-  i18nFormat: {
-    localeData: 'ru'
-  }
-};
+console.info('Template compilation\n');
+const compileIterations = 100;
+let duration = compileDuration(compileIterations, false);
+console.info(
+  `Compile templates (iterations ${compileIterations}), without cache`
+);
+console.info(
+  `Total time: ${duration.total}ms, min: ${duration.min}ms, max: ${duration.max}ms\n`
+);
 
-i18next.use(Backend).use(IntervalPlural).use(ICU).init(i18nextOptions);
-const translators = {
-  ru: i18next.getFixedT('ru'),
-  ua: i18next.getFixedT('ua'),
-  lv: i18next.getFixedT('lv'),
-  lt: i18next.getFixedT('lt'),
-  es: i18next.getFixedT('es')
-};
+duration = compileDuration(compileIterations, true);
+console.info(`Compile templates (iterations ${compileIterations}), with cache`);
+console.info(
+  `Total time: ${duration.total}ms, min: ${duration.min}ms, max: ${duration.max}ms\n`
+);
 
+const renderIterations = 10000;
+const renderResult = renderDuration(renderIterations, renderFn, {
+  ...data,
+  ...{ __t: translators.ru }
+});
+console.info(`Render data (iterations ${renderIterations})`);
+console.info(
+  `Total time: ${renderResult.duration.total}ms, min: ${renderResult.duration.min}ms, max: ${renderResult.duration.max}ms\n`
+);
+console.info('HTML:');
+console.info(renderResult.html, '\n');
+
+console.info(memoryUsage());
+
+/*
+import { translators } from './locales';
+import { compileTemplateWithoutCache } from './templates';
+import data from './templates/data.json';
+
+const renderFn = compileTemplateWithoutCache();
 const translator = translators.ru;
-
-console.info(translator('key'));
-console.info(0, translator('nights_gen', { nights: 0 }));
-console.info(1, translator('nights_gen', { nights: 1 }));
-console.info(2, translator('nights_gen', { nights: 2 }));
-console.info(3, translator('nights_gen', { nights: 3 }));
-console.info(9, translator('nights_gen', { nights: 9 }));
-console.info(20, translator('nights_gen', { nights: 20 }));
-console.info(21, translator('nights_gen', { nights: 21 }));
-console.info(32, translator('nights_gen', { nights: 32 }));
-console.info(translator('checkin'));
-console.info(translator('Checkin'));
+console.info(renderFn({ ...data, ...{ __t: translator } }));
+*/
