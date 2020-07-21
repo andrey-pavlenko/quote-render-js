@@ -24,8 +24,8 @@ Total time: 1766ms, min: 0ms, max: 35ms
 
 #### Память
 
-Resident Set Size (amount of space occupied in the main memory device): 87.56 Mb
-Heap total: 46.89 Mb
-Heap used: 28.32 Mb
-C++ objects bound to JavaScript objects: 1.01 Mb
+Resident Set Size (amount of space occupied in the main memory device): 87.56 Mb  
+Heap total: 46.89 Mb  
+Heap used: 28.32 Mb  
+C++ objects bound to JavaScript objects: 1.01 Mb  
 Allocated for ArrayBuffers and SharedArrayBuffers: 0.03 Mb
