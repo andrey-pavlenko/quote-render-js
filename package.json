@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon",
+    "start": "npm run build && node build/index",
     "build": "rimraf ./build && tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "i18next": "^19.6.2",
+    "i18next-fs-backend": "^1.0.7",
+    "i18next-icu": "^1.4.2",
+    "i18next-intervalplural-postprocessor": "^2.0.1",
     "pug": "^3.0.0"
   },
   "devDependencies": {

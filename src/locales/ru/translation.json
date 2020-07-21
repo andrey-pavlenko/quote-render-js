@@ -1,0 +1,10 @@
+{
+  "key": "value",
+  "nights_gen_0_20": "(0){ночей};(1){ночь};(2-4){ночи};(5-inf){ночей}",
+  "nights_gen": "{nights, plural, zero {ночей} one {ночь} two {ночи} few {ночи} many {ночей} other {ночей}}",
+  "nights_gen1": "{{nights, pluralsRu:ночь|ночи|ночей}}",
+  "nights_gen2": "{nights, plural, one {ночь} few {ночи} many {ночей} other {ночей}}",
+  "nights_gen21": "{nights, number} {nights, plural, one {ночь} few {ночи} many {ночей} other {ночей}}",
+  "checkin": "заезд",
+  "Checkin": "Заезд"
+}
