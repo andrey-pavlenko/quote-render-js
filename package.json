@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "nodemon",
     "start": "npm run build && node build/index",
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./build && tsc && npm run copy-locales && npm run copy-templates",
+    "copy-locales": "find src/locales/* -type d -exec cp -r {} build/locales/ \\;",
+    "copy-templates": "find src/templates/* -type d -exec cp -r {} build/templates/ \\;",
     "__t": "ts-node src/translate.ts"
   },
   "keywords": [],

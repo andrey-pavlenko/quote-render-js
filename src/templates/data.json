@@ -5,7 +5,8 @@
     "advanced_bottom_text": "Хорошего отдыха!",
     "show_touroperator": true,
     "show_ta_rating": true,
-    "items": [{
+    "items": [
+      {
         "pos": 0,
         "checkin": "2020-08-10",
         "nights": 7,
