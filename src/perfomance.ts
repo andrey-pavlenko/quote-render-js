@@ -5,13 +5,14 @@ function getMs(fn: () => unknown): number {
   return end - start;
 }
 
-function getDuration(
-  durations: number[]
-): { total: number; min: number; max: number } {
+function getDuration(durations: number[]): { [propName: string]: number } {
+  durations = durations.sort();
   const total = durations.reduce((a, b) => a + b);
-  const min = durations.reduce((a, b) => Math.min(a, b));
-  const max = durations.reduce((a, b) => Math.max(a, b));
-  return { total, min, max };
+  const min = durations[0];
+  const max = durations[durations.length - 1];
+  const medianPos = Math.floor(durations.length / 2);
+  const median = durations[medianPos];
+  return { total, min, max, median };
 }
 
 function memoryUsage(): string {
@@ -38,4 +39,15 @@ function memoryUsage(): string {
   return formatted.join('\n');
 }
 
-export { getMs, getDuration, memoryUsage };
+function durationToStr(duration: ReturnType<typeof getDuration>): string {
+  return Object.keys(duration)
+    .map(
+      (key) =>
+        `${key.charAt(0).toUpperCase()}${key.slice(1).toLowerCase()}: ${
+          duration[key]
+        }ms`
+    )
+    .join(' ');
+}
+
+export { getMs, getDuration, memoryUsage, durationToStr };

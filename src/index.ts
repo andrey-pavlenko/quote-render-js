@@ -4,7 +4,7 @@ import {
   renderDuration
 } from './templates';
 import { translators } from './locales';
-import { memoryUsage } from './perfomance';
+import { memoryUsage, durationToStr } from './perfomance';
 import data from './templates/data.json';
 
 const renderFn = compileTemplateWithoutCache();
@@ -15,15 +15,11 @@ let duration = compileDuration(compileIterations, false);
 console.info(
   `Compile templates (iterations ${compileIterations}), without cache`
 );
-console.info(
-  `Total time: ${duration.total}ms, min: ${duration.min}ms, max: ${duration.max}ms\n`
-);
+console.info(durationToStr(duration), '\n');
 
 duration = compileDuration(compileIterations, true);
 console.info(`Compile templates (iterations ${compileIterations}), with cache`);
-console.info(
-  `Total time: ${duration.total}ms, min: ${duration.min}ms, max: ${duration.max}ms\n`
-);
+console.info(durationToStr(duration), '\n');
 
 const renderIterations = 10000;
 const renderResult = renderDuration(renderIterations, renderFn, {
@@ -31,11 +27,10 @@ const renderResult = renderDuration(renderIterations, renderFn, {
   ...{ __t: translators.ru }
 });
 console.info(`Render data (iterations ${renderIterations})`);
-console.info(
-  `Total time: ${renderResult.duration.total}ms, min: ${renderResult.duration.min}ms, max: ${renderResult.duration.max}ms\n`
-);
-console.info('HTML:');
-console.info(renderResult.html, '\n');
+console.info(durationToStr(duration), '\n');
+
+// console.info('HTML:');
+// console.info(renderResult.html, '\n');
 
 console.info(memoryUsage());
 
