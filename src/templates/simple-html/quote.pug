@@ -1,6 +1,7 @@
 .quote
   p #{quote.name}
   p #{quote.advanced_text}
+  //- Циклы с выполнением JS-функций
   each item in quote.items.sort((a,b) => a.ord - b.ord)
     include ./item
   p #{quote.advanced_bottom_text}

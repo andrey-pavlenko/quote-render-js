@@ -33,13 +33,3 @@ console.info(durationToStr(duration), '\n');
 // console.info(renderResult.html, '\n');
 
 console.info(memoryUsage());
-
-/*
-import { translators } from './locales';
-import { compileTemplateWithoutCache } from './templates';
-import data from './templates/data.json';
-
-const renderFn = compileTemplateWithoutCache();
-const translator = translators.ru;
-console.info(renderFn({ ...data, ...{ __t: translator } }));
-*/

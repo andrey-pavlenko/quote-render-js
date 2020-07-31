@@ -1,8 +1,12 @@
 .item
+  //- Вызов JS-функций, которые переданы в контексте вместе с данными
+  //- например, __t -- функция перевода из i18next
   p #{item.nights} #{__t('nights_gen', { nights: item.nights })}
+  //- Работа с датами из строки, можно использовать tomezone
   p #{__t('Checkin')} #{__t('date_dMMM', {value: new Date() })}
-  //- p #{__t('Checkin')} #{__t('date_dMMM', {value: new Date(item.checkin + 'Z') })}
   p
+    //- Условия в стиле JavaScript https://pugjs.org/language/conditionals.html
+    //- и switch/case https://pugjs.org/language/case.html
     if item.href
       a(href= item.href) #{item.name}
     else
